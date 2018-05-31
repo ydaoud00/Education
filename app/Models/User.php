@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'role', 'center_id', 'grade_id', 'course'
     ];
 
     /**
@@ -26,4 +26,21 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public $timestamps = false;
+
+    public function center()
+    {
+        return $this->belongsTo('App\Models\Center');
+    }
+
+    public function grade()
+    {
+        return $this->belongsTo('App\Models\Grade');
+    }
+
+    public function files()
+    {
+        return $this->hasMany('App\Models\File');
+    }
 }
