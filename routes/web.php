@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('users', 'UserController');
+Route::resource('centers', 'CenterController', ['except' => ['show']]);
+Route::resource('subjects', 'SubjectController', ['except' => ['show', 'edit', 'update']]);
+Route::resource('files', 'FileController', ['except' => ['edit', 'destroy']]);
+Route::resource('comments', 'CommentController', ['except' => ['index', 'create', 'show', 'edit', 'update', 'destroy']]);
