@@ -9,6 +9,7 @@ class Comment extends Model
     protected $table = 'comments';
 	protected $fillable = ['description', 'file_id'];
   	protected $guarded = ['id'];
+  	public $timestamps = false;
 
   	public function file()
     {

@@ -9,6 +9,7 @@ class Subject extends Model
     protected $table = 'subjects';
 	protected $fillable = ['name', 'center_id', 'grade_id', 'course'];
   	protected $guarded = ['id'];
+    public $timestamps = false;
 
   	public function center()
     {

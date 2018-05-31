@@ -9,6 +9,7 @@ class File extends Model
     protected $table = 'files';
 	protected $fillable = ['name', 'path', 'likes', 'subject_id', 'user_id'];
   	protected $guarded = ['id'];
+    public $timestamps = false;
 
   	public function subject()
     {
