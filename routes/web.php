@@ -23,3 +23,5 @@ Route::resource('centers', 'CenterController', ['except' => ['show']]);
 Route::resource('subjects', 'SubjectController', ['except' => ['show', 'edit', 'update']]);
 Route::resource('files', 'FileController', ['except' => ['edit', 'destroy']]);
 Route::resource('comments', 'CommentController', ['except' => ['index', 'create', 'show', 'edit', 'update', 'destroy']]);
+Route::get('/contact', 'ContactController@show');
+Route::post('/contact', 'ContactController@mailToAdmin');
